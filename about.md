@@ -4,6 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
+<img align="right" width="150" src="/img/montezumas-revenge.JPG" style="padding: 0 35px">
 <img align="left" width="100" src="/img/profile-img.jpg" style="padding: 0 35px">
 
 
