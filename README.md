@@ -1,3 +1,3 @@
 # gmargo11.github.io
 
-Hello world!
+Gabe's website. Made with GitHub Pages and Jekyll.
