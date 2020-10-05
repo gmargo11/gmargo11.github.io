@@ -1,17 +1,11 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-# layout: home
-#---
-
-layout: default
-title: Projects
+layout: page
+title: About Me
+permalink: /about/
 ---
-<h1>Latest Posts</h1>
 
 
-{% for post in site.posts %}
-<h2> <a href="{{ post.url }}">{{ post.title }}</a></h2>
-<p>{{ post.excerpt }}</p>
-{% endfor %}
+<img align="left" width="100" src="/img/profile-img.jpg" style="padding: 0 35px">
+
+
+I am pursuing a Master's of Engineering in Artificial Intelligence at the Massachusetts Institute of Technology, advised by Professor [Pulkit Agrawal](people.csail.mit.edu/pulkitag/). Previously, I was an undergraduate at MIT. My main research interests include embodied intelligence, robot learning, and visual control.Currently, I am investigating vision-conditioned locomotion for the (MIT Mini Cheetah)[https://www.youtube.com/watch?v=G6fMV1UPzkg]. In my free time, I enjoy rowing on the Charles River.
