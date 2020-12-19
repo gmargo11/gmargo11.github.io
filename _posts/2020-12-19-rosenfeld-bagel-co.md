@@ -2,7 +2,7 @@
 layout: post
 title:  "Rosenfeld Bagel Co"
 date:   2020-12-19 11:58:00 +00:00
-image: ../images/bagels/rosenfeld.png
+image: ../images/bagels/rosenfeld.jpg
 categories: "bagels"
 location: Boston Area
 subtitle: "NY-style Bagels in Newton"

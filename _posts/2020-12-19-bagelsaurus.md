@@ -2,7 +2,7 @@
 layout: post
 title:  "Bagelsaurus"
 date:   2020-12-19 11:59:00 +00:00
-image: ../images/bagels/bagelsaurus.png
+image: ../images/bagels/bagelsaurus.jpg
 categories: "bagels"
 location: Boston Area
 subtitle: "Cambridge Delivers in its Own Style"
