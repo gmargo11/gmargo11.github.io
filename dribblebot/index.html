@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<head>
+    <!-- Title -->
+    <title>DribbleBot: Dynamic Legged Manipulation in the Wild</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Reinforcement Learning for Quadrupedal Dribbling in the Wild">
+    <meta name="keywords" content="Robot Locomotion, Reinforcement Learning, Task Specification">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- https://fontawesome.com/cheatsheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+</head>
+
+
+<body>
+    <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> -->
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #A31F34;">
+        <a class="navbar-brand" href="#">Sim-to-Real Soccer</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Abstract">Abstract</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Paper">Paper</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Related">Related Projects</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="container" style="padding-top: 80px; font-size: 20px">
+        <div align="center">
+            <h2 class="text-center" align="center">
+                Reinforcement Learning for Quadrupedal Dribbling in the Wild
+            </h2>
+            <h6>
+                <a href="https://yandongji.github.io/" target="_blank">Yandong Ji*</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://gmargo11.github.io/" target="_blank">Gabriel B. Margolis*</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a><br>
+            </h6>
+            <small>Improbable AI Lab</small> <br>
+            <small>Computer Science and Artificial Intelligence Laboratory (CSAIL)</small> <br>
+            <small>Massachusetts Institute of Technology</small> <br><br>
+            <p style="color: green;"><small>CoRL 2022 Workshop on Sim-to-Real Robot Learning: Locomotion and Beyond </small></p>
+            <p style="color: blueviolet;"><small>ICRA 2023 </small></p>
+        </div>
+    </div><br>
+
+    <center>
+        <a href="https://drive.google.com/file/d/1CosZqPrh9de_82KEExDbXrDEHdpsq7Tj/view" class="btn btn-blue" onmouseover="this.style.backgroundColor='#0080ff'" onmouseout="this.style.backgroundColor='#0066cc'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #0066cc; background-image: url(Home/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;">Paper</a>
+        <!-- <a href="https://github.com/Improbable-AI/walk-these-ways" class="btn" onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#333'" style="display: inline-block; padding: 8px 16px 8px 36px; font-size: 16px; color: white; background-color: #333; background-image: url(https://github.com/favicon.ico); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;">GitHub</a> -->
+    </center><br>
+
+    <!-- straight -->
+    <div class="container" style="padding-top: 10px; font-size: 20px">
+        <div align="center">
+            <div class="center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Oi1eS9vC3XQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- <iframe src="https://youtu.be/l4Ee56ao2nE" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="360" style="max-width: 640px;"></iframe> -->
+            </div>
+        </div>
+    </div><br>
+
+
+
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/l4Ee56ao2nE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+    <!-- Abstract -->
+    <div class="container">
+        <h4 id="Abstract" style="padding-top: 70px; margin-top: -80px; ">Abstract</h4>
+        <hr>
+        <div style="text-align: justify">
+            We present DribbleBot (<u>D</u>exte<u>r</u>ous <u>B</u>all Manipulation
+            with a <u>Le</u>gged Ro<u>bot</u>), a legged robotic system that
+            can dribble a soccer ball under the same real-world conditions
+            as humans. We identify key challenges of in-the-wild soccer
+            ball manipulation, including variable ball motion dynamics
+            and perception using body-mounted cameras. To overcome
+            these challenges, we propose a domain and task specification
+            for learning viable soccer dribbling behaviors in simulation
+            that transfer to real fields. Our system provides promising
+            evidence that current legged robots are physically capable and
+            adequately sensorized for varied and dynamic real-world soccer
+            play.
+        </div>
+    </div><br><br>
+
+    <!-- Paper -->
+    <div class="container">
+        <h4 id="Paper" style="padding-top: 70px; margin-top: -80px;">Paper</h4>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-12">
+                <b>Reinforcement Learning for Quadrupedal Dribbling in the Wild</b><br>
+                <a href="https://yandongji.github.io/" target="_blank">Yandong Ji*</a>,
+                <a href="https://gmargo11.github.io/" target="_blank">Gabriel B. Margolis*</a>,
+                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a><br>
+                <em>CoRL 2022 Workshop on Sim-to-Real Robot Learning: Locomotion and Beyond </em><br>
+                <em>ICRA 2023 </em><br>
+                <!-- <br> -->
+                <a href="https://drive.google.com/file/d/1CosZqPrh9de_82KEExDbXrDEHdpsq7Tj/view" target="_blank">paper</a> /
+                <a href="https://gmargo11.github.io/dribblebot" target="_blank">project page</a> 
+                <!-- <a href="https://github.com/Improbable-AI/walk-these-ways" target="_blank">code</a> / -->
+
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container">
+        <h4 id="sim-dribbling" style="padding-top: 30px; margin-top: -40px;">Dribbling maneuvers in simulation</h4>
+        <hr>
+        <!-- <div style="text-align: justify">
+            All behaviors are achieved by a single neural network policy with its gait parameters modulated by a human operator or procedurally generated by a script.
+        </div> -->
+        <br>
+        <!-- <div class="row"> -->
+            <div align="center">
+                <!-- <ul> -->
+                    <div class="center">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/PgfuiPmWkcc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!-- <iframe src="https://youtu.be/PgfuiPmWkcc" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="360" style="max-width: 640px;"></iframe> -->
+                    </div>
+                    <!-- </ul> -->
+            </div>
+        <!-- </div> -->
+    </div><br><br>
+    
+    <div class="container">
+        <h4 id="grass-dimlight" style="padding-top: 30px; margin-top: -40px;">Demonstrating soccer fetching skills in hallway</h4>
+        <hr>
+        <!-- <div style="text-align: justify">
+            Demonstrating ball control on grass.
+        </div> -->
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                <table class="center">
+                        <tbody><tr style="font-size:15pt">
+                        </tr>
+                        <tr>
+                            <td>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/yYsaBZlf4c0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <!-- <iframe src="https://youtu.be/nRN_YRLCJS0" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="640px" height="360px" style="max-width: 100%; max-height: calc((40vw) / (16/9))"></iframe> -->
+                            </td>
+                            <td>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/i_2BPIAqGHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <!-- <iframe src="https://youtu.be/kthfzsm6xH8" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="640px" height="360px" style="max-width: 100%; max-height: calc((40vw) / (16/9))"></iframe> -->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    </ul>
+            </div>
+        </div>
+        <!-- <div align=""center>
+            <div class="center">
+                <iframe src="https://youtu.be/Zth9bms_p-Q" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="360" style="max-width: 640px;"></iframe>
+            </div>
+        </div> -->
+            <!-- <br><br> -->
+        </div>
+    <!-- </div> -->
+    <!-- <div class="container" style="padding-top: 10px; font-size: 20px">
+        <div align="center">
+            <div class="center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Zth9bms_p-Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div> -->
+    <br><br>
+
+    <!-- <div class="container">
+        <h4 id="interactive" style="padding-top: 30px; margin-top: -40px;">Soccer ball as a medium for human-robot interactive play</h4>
+        <hr>
+        <br>
+            <ur>
+            <div align="center">
+                <div class="center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/IzvBmKaYTC8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </ur>
+    </div> -->
+
+
+    <div class="container">
+        <h4 id="grass-dimlight" style="padding-top: 30px; margin-top: -40px;">Soccer ball as a medium for human-robot interactive play</h4>
+        <hr>
+        <!-- <div style="text-align: justify">
+            Demonstrating ball control on grass.
+        </div> -->
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                <table class="center">
+                        <tbody><tr style="font-size:15pt">
+                        </tr>
+                        <tr>
+                            <td>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Lm8kcTf7oAA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <!-- <iframe src="https://youtu.be/nRN_YRLCJS0" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="640px" height="360px" style="max-width: 100%; max-height: calc((40vw) / (16/9))"></iframe> -->
+                            </td>
+                            <td>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/IzvBmKaYTC8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <!-- <iframe src="https://youtu.be/kthfzsm6xH8" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="640px" height="360px" style="max-width: 100%; max-height: calc((40vw) / (16/9))"></iframe> -->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    </ul>
+            </div>
+        </div>
+        <!-- <div align=""center>
+            <div class="center">
+                <iframe src="https://youtu.be/Zth9bms_p-Q" frameborder="0" allow="accelerometer; autoplay=1; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="360" style="max-width: 640px;"></iframe>
+            </div>
+        </div> -->
+            <!-- <br><br> -->
+        </div>
+    <br><br>
+
+    <div class="container">
+        <h4 id="limitations" style="padding-top: 30px; margin-top: -40px;">Dribbling on slope terrain</h4>
+        <hr>
+        <!-- <div style="text-align: justify">
+            Demonstrating ball control on grass.
+        </div> -->
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                <table class="center">
+                        <tbody><tr style="font-size:15pt">
+                        </tr>
+                        <tr>
+                            <td>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/oNQkelobio0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </td>
+                            <td>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/1r3LCaZWsgE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </td>
+                        </tr>
+
+                    </tbody></table>
+                    
+                    </ul>
+            </div>
+            
+        </div>
+        </div><br><br><br>
+
+
+
+    <div class="container">
+        <h4 id="Related" style="padding-top: 70px; margin-top: -80px;">Related Projects</h4>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <b>Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior</b><br>
+                <a href="https://gmargo11.github.io/" target="_blank">Gabriel B. Margolis</a>,
+                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a> <br>
+                <em>Conference on Robot Learning (<strong>CoRL</strong>)</em>, 2022
+                <br>
+                <a href="https://openreview.net/pdf?id=52c5e73SlS2" target="_blank">paper</a> /
+                <a href="https://gmargo11.github.io/walk-these-ways/" target="_blank">project page</a> /
+                <a href="" data-toggle="modal" data-target="#corl21-bibtex">
+                    bibtex
+                </a> <br>
+                <!-- Modal -->
+                <div class="modal fade" id="corl22-bibtex" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="corl22-bibtex-title">bibtex</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <pre>
+                                    @article{margolis2022walktheseways,
+                                        title={Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior},
+                                        author={Margolis, Gabriel B and Agrawal, Pulkit},
+                                        journal={Conference on Robot Learning},
+                                        year={2022}
+                                    }
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        &nbsp
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <b>Creating a Dynamic Quadrupedal Robotic Goalkeeper with Reinforcement Learning</b><br>
+                Xiaoyu Huang, 
+                <a href="https://scholar.google.com/citations?hl=en&user=ouSpgSkAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Zhongyu Li*</a>,
+                Yanzhen Xiang, Yiming Ni, Yufeng Chi, Yunhao Li, 
+                <a href="https://lzyang2000.github.io" target="_blank">Lizhi Yang</a>,
+                
+                <a href="https://xbpeng.github.io" target="_blank">Xue Bin Peng</a>,
+                <a href="https://me.berkeley.edu/people/koushil-sreenath/" target="_blank">Koushil Sreenath</a><br>
+                <!-- <a href="https://gmargo11.github.io/" target="_blank">Gabriel B. Margolis</a>,
+                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a> <br> -->
+                <em>International Conference on Robotics and Automation (<strong>ICRA</strong>)</em>, 2023
+                <br>
+                <a href="https://arxiv.org/pdf/2210.04435.pdf" target="_blank">paper</a> /
+                <a href="https://xbpeng.github.io/projects/A1Goalkeeping/index.html" target="_blank">project page</a> /
+                <a href="" data-toggle="modal" data-target="#corl21-bibtex">
+                    bibtex
+                </a> <br>
+                <!-- Modal -->
+                <div class="modal fade" id="corl22-bibtex" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="corl22-bibtex-title">bibtex</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <pre>
+                                    @article{huang2022creating,
+                                        title={Creating a Dynamic Quadrupedal Robotic Goalkeeper with Reinforcement Learning},
+                                        author={Huang, Xiaoyu and Li, Zhongyu and Xiang, Yanzhen and Ni, Yiming and Chi, Yufeng and Li, Yunhao and Yang, Lizhi and Peng, Xue Bin and Sreenath, Koushil},
+                                        journal={arXiv preprint arXiv:2210.04435},
+                                        year={2022}
+                                      }
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        &nbsp
+
+
+
+
+        
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <b>Hierarchical Reinforcement Learning for Precise Soccer Shooting Skills using a Quadrupedal Robot</b><br>
+                <a href="https://yandongji.github.io/" target="_blank">Yandong Ji*</a>,
+                <a href="https://scholar.google.com/citations?hl=en&user=ouSpgSkAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Zhongyu Li*</a>,
+                <a href="https://www.linkedin.com/in/yinan-sun-b1ab26219" target="_blank">Yinan Sun</a>,
+                <a href="https://xbpeng.github.io" target="_blank">Xue Bin Peng</a>,
+                <a href="https://people.eecs.berkeley.edu/~svlevine/" target="_blank">Sergey Levine</a>,
+                <a href="https://neo-x.github.io" target="_blank">Glen Berseth</a>,
+                <a href="https://me.berkeley.edu/people/koushil-sreenath/" target="_blank">Koushil Sreenath</a> <br>
+                <em>International Conference on Intelligent Robots and Systems (<strong>IROS</strong>)</em>, 2022, (<span style="color:red"><strong>Best RoboCup Paper Award Finalist</strong></span>)
+                <br>
+                <a href="https://arxiv.org/pdf/2208.01160.pdf" target="_blank">paper</a> /
+                <a href="https://xbpeng.github.io/projects/A1SoccerShooting/index.html" target="_blank">project page</a> /
+                <a href="" data-toggle="modal" data-target="#iros22-bibtex">
+                    bibtex
+                </a> <br>
+                <!-- Modal -->
+                <div class="modal fade" id="iros22-bibtex" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="iros22-bibtex-title">bibtex</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <pre>
+                                    @Article{ji2022soccer,
+                                        Title                    = {Hierarchical Reinforcement Learning for Precise Soccer Shooting Skills using a Quadrupedal Robot}, 
+                                        Author                   = {Yandong Ji and Zhongyu Li and Yinan Sun and Xue Bin Peng and Sergey Levine and Glen Berseth and Koushil Sreenath},
+                                        Journal                  = IEEE_IROS, 
+                                        Year                     = {2022},
+                                        Month                    = oct,
+                                      }
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        &nbsp
+        <div class="row">
+            <div class="col-md-12">
+                <b>Rapid Locomotion via Reinforcement Learning</b><br>
+                <a href="https://gmargo11.github.io/" target="_blank">Gabriel B. Margolis</a>,
+                <a href="https://www.episodeyang.com/" target="_blank">Ge Yang</a>,
+                <a href="https://kartikpaigwar.github.io/" target="_blank">Kartik Paigwar</a>,
+                <a href="https://taochenshh.github.io/" target="_blank">Tao Chen</a>,
+                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a> <br>
+                <em>Robotics: Science and Systems (<strong>RSS</strong>)</em>, 2022
+                <br>
+                <a href="https://arxiv.org/abs/2205.02824" target="_blank">paper</a> /
+                <a href="https://agility.csail.mit.edu" target="_blank">project page</a> /
+                <a href="https://github.com/Improbable-AI/rapid-locomotion-rl" target="_blank">code</a> /
+                <a href="" data-toggle="modal" data-target="#rss-bibtex">
+                    bibtex
+                </a> <br>
+                <!-- Modal -->
+                <div class="modal fade" id="rss-bibtex" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="rss-bibtex-title">bibtex</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+        <pre>
+        @article{margolisyang2022rapid,
+            title={Rapid Locomotion via Reinforcement Learning},
+            author={Margolis, Gabriel B and Yang, Ge and Paigwar, Kartik and Chen, Tao and Agrawal, Pulkit},
+            journal={Robotics: Science and Systems},
+            year={2022}
+        }
+        </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <center>
+    <p>Website made using <a href="https://gmargo11.github.io/walk-these-ways/">this template</a>.</p>
+    </center>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
