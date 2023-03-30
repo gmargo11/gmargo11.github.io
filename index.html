@@ -38,6 +38,9 @@
               </h1>
               <p>I am a PhD student at the <a href="https://www.csail.mit.edu/">Computer Science and Artificial Intelligence Laboratory (CSAIL)</a> at <a href="https://www.mit.edu/">MIT</a>, where I work on <a href="https://ei.csail.mit.edu/">Embodied Intelligence</a>. Advised by <a href="http://people.csail.mit.edu/pulkitag/">Pulkit Agrawal</a>, I study learned control as a component of complete robotic systems. Previously, I received my BS ('20) and MEng ('21) degrees at MIT.
               </p>
+              <p>
+                My goal is to advance reliable and helpful mobile robots for assistance, delivery, emergency response, and sport. To this end, I think that <b>sim-to-real reinforcement learning</b> is a promising tool for <b>synthesizing unscriptable motor skills</b>. This is pertinent to underactuated, contact-rich robot systems with fast dynamics, where humans may lack the intuition to provide expert demonstrations.
+              </p>
               <p style="text-align:center">
                 <a target="_blank" href="mailto:gmargo@mit.edu"> Email</a> &nbsp;/&nbsp;
                 <a href="https://scholar.google.com/citations?hl=en&user=Jzt5uNAAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a> &nbsp;/&nbsp;
@@ -58,9 +61,13 @@
               <h2>Updates</h2>
               <p>
               <table class="tab">
+                <tr>
+                  <td><i>Dec '22 &emsp;</i></td>
+                  <td>Our open-source codebase for sim2real transfer of continuously parameterized structured gaits to Unitree Go1 is now released, accompanying our CoRL 2022 paper. <a href="https://github.com/Improbable-AI/walk-these-ways">Try it out!</a></li></td>
+                </tr>
               <tr>
-                <td><i>Sep '22 &emsp;</i></td>
-                <td>I'm co-organizing the <a href="https://sim2real.corl2022.org/">Workshop on Sim-to-Real Robot Learning: Locomotion and Beyond </a> at CoRL 2022. Consider contributing a demo or abstract!</li></td>
+                <td><i>Dec '22 &emsp;</i></td>
+                <td>I co-organized the <a href="https://sim2real.corl2022.org/">Workshop on Sim-to-Real Robot Learning: Locomotion and Beyond </a> at the 2022 Conference on Robot Learning. Thanks to all who participated! The full recording is now available <a href="https://www.youtube.com/watch?v=1LcORZyV1cs">here</a>.</li></td>
               </tr>
               <tr>
                 <td><i>Jun '22 &emsp;</i></td>
@@ -76,9 +83,6 @@
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Research</h2>
-              <p>
-                My goal is to design reliable and helpful mobile robots for assistance, delivery, emergency response, and sport. I am currently focused on the application of reinforcement learning to legged robots.
-              </p>
             </td>
           </tr>
         </table>
@@ -93,27 +97,27 @@
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <a href="https://openreview.net/pdf?id=JuNvyNe3gq">
-                <img src="images/dribbling.png" alt="sym" width="100%" style="border-radius:5px">
+                <img src="images/dribblebot_field.png" alt="sym" width="100%" style="border-radius:5px">
             </a></td>
 
             <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://openreview.net/pdf?id=JuNvyNe3gq">
-              <h3>Reinforcement Learning for Quadrupedal Dribbling in the Wild
+              <a href="dribblebot/rsc/dribblebot_paper.pdf">
+              <h3>DribbleBot: Dynamic Legged Manipulation in the Wild
               </h3>
               </a>
               <br>
               <a href="https://yandongji.github.io/">Yandong Ji*</a>, <strong>Gabriel B. Margolis*</strong> , <a href="https://people.csail.mit.edu/pulkitag" target="_blank">Pulkit Agrawal</a>
               <br>
-              <em>ICRA</em>, 2023
+              <em>International Conference on Robotics and Automation (ICRA), 2023</em>
               <br>
               <br>
-              <a href="https://drive.google.com/file/d/1CosZqPrh9de_82KEExDbXrDEHdpsq7Tj/view">extended abstract</a> /
-              <a href="https://yandongji.github.io/soccer-dribbling/" target="_blank">project page</a>
+              <a href="dribblebot/rsc/dribblebot_paper.pdf">paper</a> /
+              <a href="https://gmargo11.github.io/dribblebot" target="_blank">project page</a>
 <!--                <a href="data/margolis2022agile.bib">bibtex</a> /-->
 <!--                code /-->
 <!--              <a href="https://www.youtube.com/watch?v=_vR-38NcHtM" target="_blank">video</a>-->
               <p></p>
-              <p> Untethered soccer ball dribbling in the wild. </p>
+              <p> Dynamic object manipulation with the legs, using onboard computation and sensing. </p>
             </td>
           </tr>
           
@@ -144,7 +148,7 @@
 <!--                <a href="data/margolis2022agile.bib">bibtex</a> /-->
                 <a href="https://github.com/Improbable-AI/walk-these-ways/" target="_blank">code</a>
                 <p></p>
-                <p> One learned policy embodies many dynamic behaviors useful for different tasks. </p>
+                <p> One learned policy embodies parameterized dynamic behaviors useful for different tasks. </p>
               </td>
           </tr>
 
@@ -270,8 +274,8 @@
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Teaching</h2>
-              <p> I enjoy teaching and advising students at all levels. If you are a current MIT undergraduate or prospective visitor interested in robotics research, feel free to drop me an email.
-              </p>
+              <!-- <p> I enjoy teaching and advising students at all levels. If you are a current MIT undergraduate or prospective visitor interested in robotics research, feel free to drop me an email.
+              </p> -->
             </td>
           </tr>
         </table>
