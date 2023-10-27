@@ -124,7 +124,7 @@
         <h4 id="Abstract" style="padding-top: 70px; margin-top: -80px; ">Abstract</h4>
         <hr>
         <div style="text-align: justify">
-            To plan efficient robot locomotion, we must use the information about a terrain's physics that can be inferred from its color, texture, and semantics. To this end, we train a visual perception module that predicts terrain properties using labels from a small amount of real-world proprioceptive locomotion. To ensure label precision, we introduce <i>Active Sensing Motor Policies</i>. These policies are trained to prefer motor skills that facilitate accurately estimating the surrounding environment's physical attributes. The estimated labels supervise a vision model that infers physical properties directly from color images and can be reused for different tasks. Leveraging a pretrained vision backbone, we demonstrate robust generalization in image space, enabling path planning from overhead imagery despite using only ground camera images for training.
+            Knowledge of terrain's physical properties inferred from color images can aid in making efficient robotic locomotion plans. However, unlike image classification, it is unintuitive for humans to label image patches with physical properties. Without labeled data, building a vision system that takes as input the observed terrain and predicts physical properties remains challenging. We present a method that overcomes this challenge by self-supervised labeling of images captured by robots during real-world traversal with physical property estimators trained in simulation. To ensure accurate labeling, we introduce <i>Active Sensing Motor Policies</i> (ASMP), which are trained to explore locomotion behaviors that increase the accuracy of estimating physical parameters. For instance, the quadruped robot learns to swipe its foot against the ground to estimate the friction coefficient accurately. We show that the visual system trained with a small amount of real-world traversal data accurately predicts physical parameters. The trained system is robust and works even with overhead images captured by a drone despite being trained on data collected by cameras attached to a quadruped robot walking on the ground.
         </div>
     </div><br><br>
 
@@ -197,25 +197,61 @@
         
         <h4 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">Overview</h4>
         <hr>
+        <br>
         
-            <!-- <div align="center">
-                <i><h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">Measures to Mitigate the Sim-to-Real Gap</h5></i>
+            <div align="center">
+                <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">We train a vision module to perceive terrain properties like friction coefficient and roughness parameter.</h5>
                 <br>
                     <div class="center">
-                        <img src="rsc/sim2real_measures.png" alt="Sim-to-Real Measures" width="80%" />
+                        <img src="rsc/im2im.gif" alt="Sim-to-Real Measures" width="70%" />
                     </div>
             </div>
     <br>
-
+    <hr>
+        <br>
+        <div align="center">
+            <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">
+              The key is to optimize the robot's gait to accurately sense terrain properties, resulting in emergent behavior like rubbing the foot to sense friction.
+            </h5>
+            <br>
+            <div class="center" style="display: flex; justify-content: center; gap: 5px;">
+              <div>
+                <img src="rsc/friction_sensing_gait.gif" style="width: 70%;" alt="Friction Sensing Gait 1" />
+                <p style="text-align: center; margin-top: 5px;"><b>Emergent foot swiping</b></p>
+              </div>
+              <div>
+                <img src="rsc/friction_sensing_gait_b.gif" style="width: 70%;" alt="Friction Sensing Gait 2" />
+                <p style="text-align: center; margin-top: 5px;"><b>Emergent foot rubbing</b></p>
+              </div>
+              <!-- <div>
+                <img src="rsc/roughness_sensing_gait.gif" style="width: 70%;" alt="Roughness Sensing Gait" />
+                <p style="text-align: center; margin-top: 5px;"><b>Roughness sensing gait</b></p>
+              </div> -->
+            </div>
+          </div>          
+    </div>
+    <hr>
         <br>
             <div align="center">
-                <i><h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">Integrated System Architecture</h5></i>
+                <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">The robot collects informative proprioceptive data and supervises a vision module that informs planning.</h5>
                 <br>
                     <div class="center">
-                        <img src="rsc/soccersys8.jpg" alt="System Architecture" width="60%" />
+                        <img src="rsc/asmp_system_diagram.jpg" alt="System Architecture" width="20%" />
                     </div>
-            </div> -->
-    </div><br><br>
+            </div>
+    <hr>
+        <br>
+            <div align="center">
+                <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">The resulting vision module can be repurposed to plan paths from a teamed drone.</h5>
+                <br>
+                    <div class="center">
+                        <img src="" alt="System Architecture" width="50%" />
+                    </div>
+            </div>
+    </div>
+    
+    
+    <br><br>
 
     
 
