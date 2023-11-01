@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.000
+Learning to see physical properties with active sensing motor policies.
+
+2
+00:00:05.001 --> 00:00:09.500
+Consider a drone image of a terrain and a few candidate paths for a legged robot. 
+
+3
+00:00:09.501 --> 00:00:14.000
+Depending on the task, the relative frictions of terrains will have different bearing on the optimal path. 
+
+4
+00:00:14.001 --> 00:00:18.000
+We develop a pipeline to inform such plans by perceiving terrain properties.
+
+5
+00:00:18.001 --> 00:00:24.500
+We propose Active Sensing Motor Policies, which adapt the robot’s behavior to accurately estimate physical information,
+
+6
+00:00:24.501 --> 00:00:29.500
+for example, intentionally swiping the feet against the ground to feel the friction parameter.
+
+7
+00:00:29.501 --> 00:00:35.000
+Active Sensing Motor Policies allow us to label the terrain properties from a few minutes of traversal.
+
+8
+00:00:35.001 --> 00:00:40.500
+The robot then learns a self-supervised vision module that densely predicts the terrain physics from RGB images.
+
+9
+00:00:40.501 --> 00:00:46.500
+The vision module can generalize to images from a teamed drone which facilitates semantics-aware path planning.
+
+10
+00:00:46.501 --> 00:00:51.500
+We can select efficient locomotion paths under new conditions using the same vision module. 
+
+11
+00:00:51.501 --> 00:00:57.500
+The robot decides to cross the grass when walking alone but keeps the payload on the sidewalk to walk faster. 
+
+12
+00:00:57.501 --> 00:00:60.000
+Thank you
