@@ -32,13 +32,13 @@
     </style>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8QCJPHM9S"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MLNCESWHS"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-P8QCJPHM9S');
+    gtag('config', 'G-9MLNCESWHS');
     </script>
 
 </head>
@@ -64,9 +64,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#Paper">Paper</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#Related">Related Projects</a>
-                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#Overview">Overview</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -103,18 +103,56 @@
     </div><br>
 
     <center>
-        <button class="btn btn-blue" onmouseover="this.style.backgroundColor='#0080ff'" onmouseout="this.style.backgroundColor='#0066cc'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #0066cc; background-image: url(rsc/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='https://openreview.net/forum?id=RQ_7yVV8vA';">Paper</button>
+        <button class="btn btn-blue" onmouseover="this.style.backgroundColor='#0080ff'" onmouseout="this.style.backgroundColor='#0066cc'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #0066cc; background-image: url(rsc/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='https://arxiv.org/abs/2311.01405';">Paper</button>
         <!-- <button class="btn" onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#333'" style="display: inline-block; padding: 8px 16px 8px 36px; font-size: 16px; color: white; background-color: #333; background-image: url(https://github.com/favicon.ico); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='https://github.com/Improbable-AI/dribblebot';">GitHub</button> -->
     </center><br>
 
     <!-- straight -->
     <div class="container" style="padding-top: 10px; font-size: 20px">
         <div align="center">
-            <div class="center">
-                <!-- <iframe src="https://www.youtube.com/embed/1cek5Ypa3TE?rel=0&amp;autoplay=0&amp;modestbranding=1&amp;controls=1&amp;mute=0&amp;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay=0; modestbranding; controls=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="100%" height="360" style="max-width: 640px;"></iframe> -->
-                <video width="100%" padding-bottom="56.25%" style="max-width: 640px;" controls>
-                    <source src="rsc/ASMP_Spotlight_Narrated.mp4" type="video/mp4">
-              </video>
+            <div class="center" style="position: relative;">
+                <video
+                  width="100%"
+                  style="max-width: 640px; display: block;"
+                  id="video"
+                  controls
+                >
+                  <source src="rsc/ASMP_Spotlight_Narrated.mp4" type="video/mp4" />
+                  <track src="rsc/ASMP_Spotlight_Narrated.vtt" kind="subtitles" srclang="en" label="English" default>
+                </video>
+                <!-- <div
+                  id="playButton"
+                  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: pointer; background-color: #000000; border: none; color: #ffffff; padding: 10px 20px; font-size: 1.5em;"
+                  onclick="playVideo()"
+                >
+                  ▶
+                </div> -->
+              </div>
+
+              <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                  const video = document.getElementById('video');
+                  const track = document.getElementById('track');
+                  track.track.mode = 'showing'; // this will show the subtitles by default
+                  video.play(); // start playing the video
+                });
+              </script>
+              
+              <!-- <script>
+                function playVideo() {
+                  const video = document.getElementById('video');
+                  const playButton = document.getElementById('playButton');
+                  const track = document.getElementById('track');
+                  track.track.mode = 'showing'; // this will show the subtitles by default
+                  video.play();
+                  playButton.style.display = 'none';
+                }
+              
+                document.getElementById('video').addEventListener('ended', function () {
+                  const playButton = document.getElementById('playButton');
+                  playButton.style.display = 'block';
+                });
+              </script> -->
             </div>
         </div>
     </div><br>
@@ -142,7 +180,7 @@
                 <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a><br>
                 <em>Conference on Robot Learning (CoRL), 2023 </em><br>
                 <!-- <br> -->
-                <a href="https://openreview.net/forum?id=RQ_7yVV8vA" target="_blank">paper</a> /
+                <a href="https://arxiv.org/abs/2311.01405" target="_blank">paper</a> /
                 <a href="https://gmargo11.github.io/active-sensing-loco" target="_blank">project page</a> /
                 <!-- <a href="https://github.com/Improbable-AI/active-sensing-loco" target="_blank">code</a> / -->
                 <a href="" data-toggle="modal" data-target="#corl23-bibtex">
@@ -195,33 +233,133 @@
 
     <div class="container">
         
-        <h4 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">Overview</h4>
+        <h4 id="Overview" style="padding-top: 70px; margin-top: -80px;">Overview</h4>
         <hr>
         <br>
         
             <div align="center">
-                <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">We train a vision module to perceive terrain properties like friction coefficient and roughness parameter.</h5>
+                <!-- <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;"> -->
+                    <b>We train a vision module to perceive terrain properties like friction coefficient and roughness parameter.</b>
+                <!-- </h5> -->
                 <br>
-                    <div class="center">
-                        <img src="rsc/im2im.gif" alt="Sim-to-Real Measures" width="70%" />
-                    </div>
+                <div class="center">
+                    <video
+                      width="100%"
+                      style="max-width: 640px;"
+                      controls="true"
+                      autoplay
+                      muted
+                      loop
+                      onplaying="this.controls=false"
+                      id="video"
+                    >
+                      <source src="rsc/im2im.mov" type="video/mp4" />
+                    </video>
+                  </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const video = document.getElementById('video');
+                      const observer = new IntersectionObserver(
+                        (entries) => {
+                          entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                              video.play();
+                            } else {
+                              video.pause();
+                            }
+                          });
+                        },
+                        {
+                          threshold: 0.5, // 50% of the video must be visible for it to play
+                        }
+                      );
+                      observer.observe(video);
+                    });
+                  </script>
             </div>
     <br>
     <hr>
         <br>
         <div align="center">
-            <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">
-              The key is to optimize the robot's gait to accurately sense terrain properties, resulting in emergent behavior like rubbing the foot to sense friction.
-            </h5>
+            <!-- <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;"> -->
+              <b>The key is to optimize the robot's gait to accurately sense the terrain, resulting in emergent behavior like rubbing the foot to sense friction.</b>
+            <!-- </h5> -->
+            <br>
             <br>
             <div class="center" style="display: flex; justify-content: center; gap: 5px;">
               <div>
-                <img src="rsc/friction_sensing_gait.gif" style="width: 70%;" alt="Friction Sensing Gait 1" />
-                <p style="text-align: center; margin-top: 5px;"><b>Emergent foot swiping</b></p>
+                <div class="center">
+                    <video
+                      width="70%"
+                      style="max-width: 640px;"
+                      controls="true"
+                      autoplay
+                      muted
+                      loop
+                      onplaying="this.controls=false"
+                      id="video"
+                    >
+                      <source src="rsc/asmp_miniclip_swiping.mov" type="video/mp4" />
+                    </video>
+                  </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const video = document.getElementById('video');
+                      const observer = new IntersectionObserver(
+                        (entries) => {
+                          entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                              video.play();
+                            } else {
+                              video.pause();
+                            }
+                          });
+                        },
+                        {
+                          threshold: 0.5, // 50% of the video must be visible for it to play
+                        }
+                      );
+                      observer.observe(video);
+                    });
+                  </script>
+                <p style="text-align: center; margin-top: 5px;">Emergent foot swiping</p>
               </div>
               <div>
-                <img src="rsc/friction_sensing_gait_b.gif" style="width: 70%;" alt="Friction Sensing Gait 2" />
-                <p style="text-align: center; margin-top: 5px;"><b>Emergent foot rubbing</b></p>
+                <div class="center">
+                    <video
+                      width="70%"
+                      style="max-width: 640px;"
+                      controls="true"
+                      autoplay
+                      muted
+                      loop
+                      onplaying="this.controls=false"
+                      id="video"
+                    >
+                      <source src="rsc/asmp_miniclip_rubbing.mov" type="video/mp4" />
+                    </video>
+                  </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const video = document.getElementById('video');
+                      const observer = new IntersectionObserver(
+                        (entries) => {
+                          entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                              video.play();
+                            } else {
+                              video.pause();
+                            }
+                          });
+                        },
+                        {
+                          threshold: 0.5, // 50% of the video must be visible for it to play
+                        }
+                      );
+                      observer.observe(video);
+                    });
+                  </script>
+                <p style="text-align: center; margin-top: 5px;">Emergent foot rubbing</p>
               </div>
               <!-- <div>
                 <img src="rsc/roughness_sensing_gait.gif" style="width: 70%;" alt="Roughness Sensing Gait" />
@@ -233,21 +371,95 @@
     <hr>
         <br>
             <div align="center">
-                <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">The robot collects informative proprioceptive data and supervises a vision module that informs planning.</h5>
+                <b>This informative proprioceptive data from real-world traversals provides training data for a vision module.</b>
+                <br>
                 <br>
                     <div class="center">
-                        <img src="rsc/asmp_system_diagram.jpg" alt="System Architecture" width="20%" />
+                        <img src="rsc/asmp_system_diagram.jpg" alt="System Architecture" width="60%" style="max-width: 400px" />
                     </div>
             </div>
     <hr>
         <br>
             <div align="center">
-                <h5 id="sys-arch" style="padding-top: 30px; margin-top: -40px;">The resulting vision module can be repurposed to plan paths from a teamed drone.</h5>
+                <b>The resulting vision module can be evaluated on drone images to predict a map of the terrain properties.</b>
                 <br>
-                    <div class="center">
-                        <img src="" alt="System Architecture" width="50%" />
-                    </div>
+                <br>
+                <div class="center">
+                    <video
+                      width="100%"
+                      style="max-width: 640px;"
+                      controls="true"
+                      autoplay
+                      muted
+                      loop
+                      onplaying="this.controls=false"
+                      id="video"
+                    >
+                      <source src="rsc/drone_image_inference.mov" type="video/mp4" />
+                    </video>
+                  </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const video = document.getElementById('video');
+                      const observer = new IntersectionObserver(
+                        (entries) => {
+                          entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                              video.play();
+                            } else {
+                              video.pause();
+                            }
+                          });
+                        },
+                        {
+                          threshold: 0.5, // 50% of the video must be visible for it to play
+                        }
+                      );
+                      observer.observe(video);
+                    });
+                  </script>
             </div>
+            <hr>
+                <br>
+                    <div align="center">
+                        <b>This defines a digital twin of the terrain to inform locomotion in unseen modes like payload dragging without collecting additional real-world data.</b>
+                        <br>
+                        <br>
+                            <div class="center">
+                                <video
+                                  width="100%"
+                                  style="max-width: 640px;"
+                                  controls="true"
+                                  autoplay
+                                  muted
+                                  loop
+                                  onplaying="this.controls=false"
+                                  id="video"
+                                >
+                                  <source src="rsc/path_plan_asmp.mov" type="video/mp4" />
+                                </video>
+                              </div>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                  const video = document.getElementById('video');
+                                  const observer = new IntersectionObserver(
+                                    (entries) => {
+                                      entries.forEach((entry) => {
+                                        if (entry.isIntersecting) {
+                                          video.play();
+                                        } else {
+                                          video.pause();
+                                        }
+                                      });
+                                    },
+                                    {
+                                      threshold: 0.5, // 50% of the video must be visible for it to play
+                                    }
+                                  );
+                                  observer.observe(video);
+                                });
+                              </script>
+                    </div>
     </div>
     
     
@@ -262,130 +474,6 @@
         <!-- <h4 id="sim-training" style="padding-top: 30px; margin-top: -40px;">Task Specification</h4> -->
         <hr>
         
-            <!-- <div align="center">
-                <br>
-                    <div class="center">
-                        <video width="100%" padding-bottom="56.25%" style="max-width: 640px;" controls>
-                            <source src="rsc/simulation.m4v" type="video/mp4">
-                      </video>
-                    </div>
-            </div>
-    </div><br><br> -->
-
-    <!-- <div class="container">
-        
-        <h4 id="sim-training" style="padding-top: 30px; margin-top: -40px;">Dynamic Mobile Manipulation</h4>
-        <hr>
-        
-            <div align="center">
-                <br>
-                    <div class="center">
-                        <video width="100%" padding-bottom="56.25%" style="max-width: 640px;" controls>
-                            <source src="rsc/mobimanip.m4v" type="video/mp4">
-                      </video>
-                    </div>
-            </div>
-    </div><br><br> -->
-
-    <!-- <div class="container">
-        
-        <h4 id="real-eval" style="padding-top: 30px; margin-top: -40px;">In-the-Wild Evaluation and Ablations</h4>
-        <hr>
-        
-            <div align="center">
-                <br>
-                    <div class="center">
-                        <video width="100%" padding-bottom="56.25%" style="max-width: 640px;" controls>
-                        <source src="rsc/full_system_trials.m4v" type="video/mp4">
-                      </video>
-                    </div>
-            </div>
-    </div><br><br> -->
-
-
-    <!-- <div class="container">
-        <h4 id="Related" style="padding-top: 70px; margin-top: -80px;">Related Projects</h4>
-        <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <b>Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior</b><br>
-                <a href="https://gmargo11.github.io/" target="_blank">Gabriel B. Margolis</a>,
-                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a> <br>
-                <em>Conference on Robot Learning (<strong>CoRL</strong>)</em>, 2022 (<span style="color:red"><strong>Oral Presentation</strong></span>)
-                <br>
-                <a href="https://arxiv.org/abs/2212.03238" target="_blank">paper</a> /
-                <a href="https://gmargo11.github.io/walk-these-ways/" target="_blank">project page</a> /
-                <a href="https://github.com/Improbable-AI/walk-these-ways" target="_blank">code</a> /
-                <a href="" data-toggle="modal" data-target="#corl22-bibtex">
-                    bibtex
-                </a> <br>
-                <div class="modal fade" id="corl22-bibtex" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="rss-bibtex-title">bibtex</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-        <pre>
-        @article{margolis2022walktheseways,
-            title={Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior},
-            author={Margolis, Gabriel B and Agrawal, Pulkit},
-            journal={Conference on Robot Learning},
-            year={2022}
-        }
-        </pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        &nbsp
-        <div class="row">
-            <div class="col-md-12">
-                <b>Rapid Locomotion via Reinforcement Learning</b><br>
-                <a href="https://gmargo11.github.io/" target="_blank">Gabriel B. Margolis</a>,
-                <a href="https://www.episodeyang.com/" target="_blank">Ge Yang</a>,
-                <a href="https://kartikpaigwar.github.io/" target="_blank">Kartik Paigwar</a>,
-                <a href="https://taochenshh.github.io/" target="_blank">Tao Chen</a>,
-                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a> <br>
-                <em>Robotics: Science and Systems (<strong>RSS</strong>)</em>, 2022
-                <br>
-                <a href="https://arxiv.org/abs/2205.02824" target="_blank">paper</a> /
-                <a href="https://agility.csail.mit.edu" target="_blank">project page</a> /
-                <a href="https://github.com/Improbable-AI/rapid-locomotion-rl" target="_blank">code</a> /
-                <a href="" data-toggle="modal" data-target="#rss-bibtex">
-                    bibtex
-                </a> <br>
-                <div class="modal fade" id="rss-bibtex" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="rss-bibtex-title">bibtex</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-        <pre>
-        @article{margolisyang2022rapid,
-            title={Rapid Locomotion via Reinforcement Learning},
-            author={Margolis, Gabriel B and Yang, Ge and Paigwar, Kartik and Chen, Tao and Agrawal, Pulkit},
-            journal={Robotics: Science and Systems},
-            year={2022}
-        }
-        </pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div> -->
 
     <br><br>
 
