@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>SoftMimic: Learning Compliant Whole-body Control from Examples</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SoftMimic: Learning Compliant Whole-body Control from Examples">
+    <meta name="keywords" content="Humanoid Robotics, Compliant Control, Reinforcement Learning, Motion Imitation">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- https://fontawesome.com/cheatsheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <style>
+        .header-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            padding-top: 0px;
+        }
+        .header-text {
+            text-align: center;
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MLNCESWHS"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9MLNCESWHS');
+    </script>
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #A31F34;">
+        <a class="navbar-brand" href="#">SoftMimic</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Abstract">Abstract</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Overview">Overview</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Paper">Paper</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="container" style="padding-top: 80px; font-size: 20px">
+        
+        <div align="center">
+            <h2 class="text-center" align="center">
+              <i>SoftMimic</i>: Learning Compliant Whole-body Control from Examples
+            </h2>
+            <br>
+            <h6>
+                <a href="https://gmargo11.github.io/" target="_blank">Gabriel&nbsp;B.&nbsp;Margolis*</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="" target="_blank">Michelle&nbsp;Wang*</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://nolie-rolie.github.io/" target="_blank">Nolan&nbsp;Fey</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit&nbsp;Agrawal</a><br>
+            </h6>
+            <br>
+            <div class="logo-container">
+                <div>
+                <object hspace="50">
+                    <a href="https://www.csail.mit.edu/" target="_blank">
+                        <img src="rsc/CSAIL_Primary_Regular_RGB.png" alt="MIT CSAIL" width="80">
+                    </a>
+                </object>
+                <object hspace="50">
+                    <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">
+                        <img src="rsc/IAI_Logo.jpg" alt="Improbable AI" width="80">
+                    </a>
+                </object>
+                </div>
+            </div>
+        </div>
+        
+    </div><br>
+
+    <center>
+        <button class="btn btn-blue" onmouseover="this.style.backgroundColor='#0080ff'" onmouseout="this.style.backgroundColor='#0066cc'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #0066cc; background-image: url(rsc/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='rsc/softmimic.pdf';">Paper</button>
+        <!-- <button class="btn btn-orange" onmouseover="this.style.backgroundColor='#FFBF00'" onmouseout="this.style.backgroundColor='#FFA500'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #FFA500; background-image: url(rsc/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='rsc/learning_compliance_thesis.pdf';">Supplement</button> -->
+        <!-- Placeholder for code link -->
+        <!-- <button class="btn" onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#333'" style="display: inline-block; padding: 8px 16px 8px 36px; font-size: 16px; color: white; background-color: #333; background-image: url(https://github.com/favicon.ico); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='https://github.com/Improbable-AI/softmimic';">GitHub</button> -->
+    </center><br>
+    
+    <div class="container" style="padding-top: 10px; font-size: 20px">
+        <div align="center">
+            <div class="center" style="position: relative;">
+                <!-- Teaser video placeholder -->
+                <video width="100%" style="max-width: 800px; display: block;" id="teaser_video" controls autoplay muted loop>
+                  <source src="rsc/softmimic_teaser.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+    </div><br>
+
+
+    <!-- Abstract -->
+    <div class="container">
+        <h4 id="Abstract" style="padding-top: 70px; margin-top: -80px; ">Abstract</h4>
+        <hr>
+        <div style="text-align: justify">
+          Imitating human motions with reinforcement learning allows humanoids to quickly learn new skills. However, existing formulations reward "stiff" motion tracking that aggressively corrects errors, leading to brittle and unsafe behavior when the robot makes unmodeled contacts. We argue that for safe and generalizable interaction, a robot responding to external forces should instead <i>depart</i> from its reference motion following a user-specified stiffness. This presents a significant control challenge, as complying with a force on one limb requires sophisticated whole-body coordination to maintain balance and posture. To address this, we present a novel framework for learning compliant whole-body control. Our key idea is a learning-from-examples approach: we use an inverse kinematics solver to procedurally generate a large-scale dataset of feasible and stylistically desirable compliant motions. We then train a policy with reinforcement learning to reproduce these behaviors. By observing the original, non-compliant motion but being rewarded for matching the corresponding compliant response, the policy learns to track motions softly while leveraging the standard machinery of RL motion imitation.  Our experiments show this approach enables a humanoid to controllably absorb disturbances, generalize a single motion clip to varied tasks like picking different-sized boxes, and safely handle unexpected contacts, all while preserving good motion tracking quality. We demonstrate these capabilities in simulation and on real hardware.
+        </div>
+    </div><br><br>
+
+    
+
+    <!-- <div class="container">
+        
+        <h4 id="Overview" style="padding-top: 70px; margin-top: -80px;">Overview</h4>
+        <hr>
+
+        <div align="center">
+            <h5>Traditional motion tracking controllers are stiff, unsafe, and not generalizable.</h5>
+            <p style="text-align: justify;">
+                Policies trained to rigidly track a reference motion treat any deviation as an error to correct. When making unexpected contact with the world, they respond with large, uncontrolled forces, leading to brittle and potentially dangerous behavior.
+            </p>
+            <div class="center">
+                <video width="80%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/stiff_failure.mp4" type="video/mp4">
+              </video>
+            </div>
+            <br>
+            <hr>
+
+            <h5>Our "Show, Don't Tell" Approach</h5>
+            <p style="text-align: justify;">
+                Instead of asking an RL agent to discover complex compliant behaviors through reward shaping, we first generate a large dataset of feasible and stylistically desirable compliant motions using an offline IK solver. The policy then learns to reproduce these behaviors, forcing it to implicitly infer external forces and react appropriately.
+            </p>
+            <div class="center">
+                <img src="rsc/system_diagram.png" style="width: 100%;" alt="SoftMimic System Diagram" />
+            </div>
+            <br>
+            <hr>
+            
+            <h5>Result: Controllable Stiffness and Safety</h5>
+            <p style="text-align: justify;">
+                Our policy can be commanded to behave with a specific stiffness. At low stiffness, it interacts gently and safely with its environment; at high stiffness, it firmly resists external forces to maintain its posture.
+            </p>
+            <div class="center" style="display: flex; justify-content: center; gap: 5px;">
+                <video width="100%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/stiffness_comparison.mp4" type="video/mp4">
+                </video>
+            </div>
+            <br>
+            <hr>
+
+            <h5>Result: Task Generalization from a Single Motion</h5>
+            <p style="text-align: justify;">
+                Compliance enables a single reference motion to generalize to a range of task variations. Here, a policy trained to pick a 20cm-wide box successfully picks boxes of various sizes by compliantly adjusting its grip.
+            </p>
+            <div class="center">
+                <video width="80%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/box_picking_generalization.mp4" type="video/mp4">
+                </video>
+            </div>
+            <br>
+            <hr>
+
+            <h5>Result: Safe and Predictable Sim-to-Real Transfer</h5>
+            <p style="text-align: justify;">
+                Our policies transfer directly to the Unitree G1 humanoid without any fine-tuning, enabling safe and predictable physical interaction with humans and the environment.
+            </p>
+            <div class="center">
+                <video width="80%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/hardware_demo.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+    </div>
+    
+    <br><br> -->
+
+    <!-- Paper -->
+    <div class="container">
+      <h4 id="Paper" style="padding-top: 70px; margin-top: -80px;">Paper</h4>
+      <hr>
+
+      <div class="row">
+          <div class="col-md-12">
+              <b><i>SoftMimic</i>: Learning Compliant Whole-body Control from Examples</b><br>
+              <a href="https://gmargo11.github.io/" target="_blank">Gabriel&nbsp;B.&nbsp;Margolis*</a>,
+              <a href="" target="_blank">Michelle&nbsp;Wang*</a>,
+              <a href="https://nolie-rolie.github.io/" target="_blank">Nolan&nbsp;Fey</a>, and
+              <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit&nbsp;Agrawal</a><br>
+              <em>Preprint, 2025</em><br>
+              <a href="rsc/softmimic.pdf" target="_blank">paper</a> /
+              <a href="" data-toggle="modal" data-target="#bibtex">
+                  bibtex
+              </a>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="bibtex" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="rss-bibtex-title">BibTeX</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+  <pre>
+  @article{margolis2025softmimic,
+      title={{SoftMimic}: Compliant Motion Tracking for Humanoid Robots},
+      author={Margolis, Gabriel B. and Wang, Michelle and Fey, Nolan and Agrawal, Pulkit},
+      journal={arXiv preprint arXiv:XXXX.XXXXX},
+      year={2025}
+  }
+  </pre>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <br><br>
+
+    <center>
+    <p>Website template adated from <a href="https://taochenshh.github.io/projects/visual-dexterity">here</a>.</p>
+    </center>
+    <br><br>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
