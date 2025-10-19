@@ -114,7 +114,7 @@
             <div class="center" style="position: relative;">
                 <!-- Teaser video placeholder -->
                 <video width="100%" style="max-width: 800px; display: block;" id="teaser_video" controls autoplay muted loop>
-                  <source src="rsc/softmimic_teaser.mp4" type="video/mp4" />
+                  <source src="rsc/softmimic_teaser.m4v" type="video/mp4" />
                 </video>
             </div>
         </div>
@@ -132,7 +132,7 @@
 
     
 
-    <!-- <div class="container">
+    <div class="container">
         
         <h4 id="Overview" style="padding-top: 70px; margin-top: -80px;">Overview</h4>
         <hr>
@@ -143,14 +143,20 @@
                 Policies trained to rigidly track a reference motion treat any deviation as an error to correct. When making unexpected contact with the world, they respond with large, uncontrolled forces, leading to brittle and potentially dangerous behavior.
             </p>
             <div class="center">
-                <video width="80%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/stiff_failure.mp4" type="video/mp4">
+                <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/stiff_tpose_wall.m4v" type="video/mp4">
               </video>
+               <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/stiff_boxpick.m4v" type="video/mp4">
+              </video>
+               <!-- <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/stiff_tpose_wall.m4v" type="video/mp4">
+              </video> -->
             </div>
             <br>
             <hr>
 
-            <h5>Our "Show, Don't Tell" Approach</h5>
+            <h5>Our Compliant Motion Augmentation Approach</h5>
             <p style="text-align: justify;">
                 Instead of asking an RL agent to discover complex compliant behaviors through reward shaping, we first generate a large dataset of feasible and stylistically desirable compliant motions using an offline IK solver. The policy then learns to reproduce these behaviors, forcing it to implicitly infer external forces and react appropriately.
             </p>
@@ -165,8 +171,11 @@
                 Our policy can be commanded to behave with a specific stiffness. At low stiffness, it interacts gently and safely with its environment; at high stiffness, it firmly resists external forces to maintain its posture.
             </p>
             <div class="center" style="display: flex; justify-content: center; gap: 5px;">
-                <video width="100%" style="max-width: 720px;" controls autoplay muted loop>
-                    <source src="rsc/stiffness_comparison.mp4" type="video/mp4">
+                <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/standing_lowstiffness.m4v" type="video/mp4">
+                </video>
+                <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/standing_lowstiffness.m4v" type="video/mp4">
                 </video>
             </div>
             <br>
@@ -174,17 +183,40 @@
 
             <h5>Result: Task Generalization from a Single Motion</h5>
             <p style="text-align: justify;">
-                Compliance enables a single reference motion to generalize to a range of task variations. Here, a policy trained to pick a 20cm-wide box successfully picks boxes of various sizes by compliantly adjusting its grip.
+                Compliance enables a single reference motion to generalize to a range of task variations. Here, a motion reference dimensioned to pick a 20cm-wide box successfully enables picking boxes of various sizes by compliantly adjusting its grip. Boxes were never modeled during training, only generalized external forces.
             </p>
             <div class="center">
-                <video width="80%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/box_picking_generalization.mp4" type="video/mp4">
+                <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/box_pick_small.m4v" type="video/mp4">
+                </video>
+                <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/box_pick_mid.m4v" type="video/mp4">
+                </video>
+                <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/box_pick_large.m4v" type="video/mp4">
                 </video>
             </div>
-            <br>
-            <hr>
 
-            <h5>Result: Safe and Predictable Sim-to-Real Transfer</h5>
+            <p style="text-align: justify;">
+                The same policy can also respond to a variety of failure cases without specialized training.
+            </p>
+
+            <div class="center">
+                <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/box_disturbance1.m4v" type="video/mp4">
+                </video>
+                <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/box_disturbance2.m4v" type="video/mp4">
+                </video>
+                <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/box_disturbance3.m4v" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- <br> -->
+            <!-- <hr> -->
+
+            <!-- <h5>Result: Safe and Predictable Sim-to-Real Transfer</h5>
             <p style="text-align: justify;">
                 Our policies transfer directly to the Unitree G1 humanoid without any fine-tuning, enabling safe and predictable physical interaction with humans and the environment.
             </p>
@@ -192,12 +224,12 @@
                 <video width="80%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
                     <source src="rsc/hardware_demo.mp4" type="video/mp4">
                 </video>
-            </div>
+            </div> -->
 
         </div>
     </div>
     
-    <br><br> -->
+    <br><br>
 
     <!-- Paper -->
     <div class="container">
