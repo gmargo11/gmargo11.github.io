@@ -32,13 +32,13 @@
     </style>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MLNCESWHS"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB3495P80B"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-9MLNCESWHS');
+    gtag('config', 'G-KB3495P80B');
     </script>
 
 </head>
@@ -78,8 +78,9 @@
             </h2>
             <br>
             <h6>
+
                 <a href="https://gmargo11.github.io/" target="_blank">Gabriel&nbsp;B.&nbsp;Margolis*</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" target="_blank">Michelle&nbsp;Wang*</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.linkedin.com/in/mwangjoy/" target="_blank">Michelle&nbsp;Wang*</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="https://nolie-rolie.github.io/" target="_blank">Nolan&nbsp;Fey</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit&nbsp;Agrawal</a><br>
             </h6>
@@ -114,7 +115,7 @@
             <div class="center" style="position: relative;">
                 <!-- Teaser video placeholder -->
                 <video width="100%" style="max-width: 800px; display: block;" id="teaser_video" controls autoplay muted loop>
-                  <source src="rsc/softmimic_teaser.m4v" type="video/mp4" />
+                  <source src="rsc/softmimic.mp4" type="video/mp4" />
                 </video>
             </div>
         </div>
@@ -126,7 +127,8 @@
         <h4 id="Abstract" style="padding-top: 70px; margin-top: -80px; ">Abstract</h4>
         <hr>
         <div style="text-align: justify">
-          Imitating human motions with reinforcement learning allows humanoids to quickly learn new skills. However, existing formulations reward "stiff" motion tracking that aggressively corrects errors, leading to brittle and unsafe behavior when the robot makes unmodeled contacts. We argue that for safe and generalizable interaction, a robot responding to external forces should instead <i>depart</i> from its reference motion following a user-specified stiffness. This presents a significant control challenge, as complying with a force on one limb requires sophisticated whole-body coordination to maintain balance and posture. To address this, we present a novel framework for learning compliant whole-body control. Our key idea is a learning-from-examples approach: we use an inverse kinematics solver to procedurally generate a large-scale dataset of feasible and stylistically desirable compliant motions. We then train a policy with reinforcement learning to reproduce these behaviors. By observing the original, non-compliant motion but being rewarded for matching the corresponding compliant response, the policy learns to track motions softly while leveraging the standard machinery of RL motion imitation.  Our experiments show this approach enables a humanoid to controllably absorb disturbances, generalize a single motion clip to varied tasks like picking different-sized boxes, and safely handle unexpected contacts, all while preserving good motion tracking quality. We demonstrate these capabilities in simulation and on real hardware.
+          <!-- Imitating human motions with reinforcement learning allows humanoids to quickly learn new skills. However, existing formulations reward "stiff" motion tracking that aggressively corrects errors, leading to brittle and unsafe behavior when the robot makes unmodeled contacts. We argue that for safe and generalizable interaction, a robot responding to external forces should instead <i>depart</i> from its reference motion following a user-specified stiffness. This presents a significant control challenge, as complying with a force on one limb requires sophisticated whole-body coordination to maintain balance and posture. To address this, we present a novel framework for learning compliant whole-body control. Our key idea is a learning-from-examples approach: we use an inverse kinematics solver to procedurally generate a large-scale dataset of feasible and stylistically desirable compliant motions. We then train a policy with reinforcement learning to reproduce these behaviors. By observing the original, non-compliant motion but being rewarded for matching the corresponding compliant response, the policy learns to track motions softly while leveraging the standard machinery of RL motion imitation.  Our experiments show this approach enables a humanoid to controllably absorb disturbances, generalize a single motion clip to varied tasks like picking different-sized boxes, and safely handle unexpected contacts, all while preserving good motion tracking quality. We demonstrate these capabilities in simulation and on real hardware. -->
+          We introduce <i>SoftMimic</i>, a framework for learning compliant whole-body control policies for humanoid robots from example motions.  Imitating human motions with reinforcement learning allows humanoids to quickly learn new skills, but traditional motion-tracking controllers are stiff, aggressively correcting deviations from a reference motion, which can lead to brittle and unsafe behavior when the robot encounters unexpected contacts. In contrast, SoftMimic enables robots to respond controllably to external forces while maintaining balance and posture. Our approach leverages an inverse kinematics solver to generate an augmented dataset of feasible compliant motions, which we use to train a reinforcement learning policy. By rewarding the policy for matching compliant responses rather than rigidly tracking the reference motion, SoftMimic learns to absorb disturbances and generalize to varied tasks from a single motion clip. We validate our method through simulations and real-world experiments, demonstrating safe and effective interaction with the environment.
         </div>
     </div><br><br>
 
@@ -158,10 +160,10 @@
 
             <h5>Our Compliant Motion Augmentation Approach</h5>
             <p style="text-align: justify;">
-                Instead of asking an RL agent to discover complex compliant behaviors through reward shaping, we first generate a large dataset of feasible and stylistically desirable compliant motions using an offline IK solver. The policy then learns to reproduce these behaviors, forcing it to implicitly infer external forces and react appropriately.
+                Instead of asking an RL agent to balance compliant behaviors with motion imitation through competing rewards, we first generate a dataset of feasible and stylistically desirable compliant motions using an offline IK solver. The policy then learns to reproduce these behaviors, forcing it to implicitly infer external forces and react appropriately.
             </p>
             <div class="center">
-                <img src="rsc/system_diagram.png" style="width: 100%;" alt="SoftMimic System Diagram" />
+                <img src="rsc/system_diagram.jpg" style="width: 100%;" alt="SoftMimic System Diagram" />
             </div>
             <br>
             <hr>
@@ -175,7 +177,7 @@
                     <source src="rsc/standing_lowstiffness.m4v" type="video/mp4">
                 </video>
                 <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
-                    <source src="rsc/standing_lowstiffness.m4v" type="video/mp4">
+                    <source src="rsc/standing_highstiffness.m4v" type="video/mp4">
                 </video>
             </div>
             <br>
@@ -240,7 +242,7 @@
           <div class="col-md-12">
               <b><i>SoftMimic</i>: Learning Compliant Whole-body Control from Examples</b><br>
               <a href="https://gmargo11.github.io/" target="_blank">Gabriel&nbsp;B.&nbsp;Margolis*</a>,
-              <a href="" target="_blank">Michelle&nbsp;Wang*</a>,
+              <a href="https://www.linkedin.com/in/mwangjoy/" target="_blank">Michelle&nbsp;Wang*</a>,
               <a href="https://nolie-rolie.github.io/" target="_blank">Nolan&nbsp;Fey</a>, and
               <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit&nbsp;Agrawal</a><br>
               <em>Preprint, 2025</em><br>
