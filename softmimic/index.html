@@ -104,8 +104,7 @@
     </div><br>
 
     <center>
-        <button class="btn btn-blue" onmouseover="this.style.backgroundColor='#0080ff'" onmouseout="this.style.backgroundColor='#0066cc'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #0066cc; background-image: url(rsc/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='rsc/softmimic.pdf';">Paper</button>
-        <!-- <button class="btn btn-orange" onmouseover="this.style.backgroundColor='#FFBF00'" onmouseout="this.style.backgroundColor='#FFA500'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #FFA500; background-image: url(rsc/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='rsc/learning_compliance_thesis.pdf';">Supplement</button> -->
+        <button class="btn btn-blue" onmouseover="this.style.backgroundColor='#0080ff'" onmouseout="this.style.backgroundColor='#0066cc'" style="display: inline-block; padding: 8px 16px 8px 42px; font-size: 16px; color: white; background-color: #0066cc; background-image: url(rsc/icons8-paperwork-32.png); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='https://arxiv.org/abs/2510.17792';">Paper</button>
         <!-- Placeholder for code link -->
         <!-- <button class="btn" onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#333'" style="display: inline-block; padding: 8px 16px 8px 36px; font-size: 16px; color: white; background-color: #333; background-image: url(https://github.com/favicon.ico); background-repeat: no-repeat; background-position: left center; border: none; border-radius: 4px;" onclick="window.location.href='https://github.com/Improbable-AI/softmimic';">GitHub</button> -->
     </center><br>
@@ -128,7 +127,7 @@
         <hr>
         <div style="text-align: justify">
           <!-- Imitating human motions with reinforcement learning allows humanoids to quickly learn new skills. However, existing formulations reward "stiff" motion tracking that aggressively corrects errors, leading to brittle and unsafe behavior when the robot makes unmodeled contacts. We argue that for safe and generalizable interaction, a robot responding to external forces should instead <i>depart</i> from its reference motion following a user-specified stiffness. This presents a significant control challenge, as complying with a force on one limb requires sophisticated whole-body coordination to maintain balance and posture. To address this, we present a novel framework for learning compliant whole-body control. Our key idea is a learning-from-examples approach: we use an inverse kinematics solver to procedurally generate a large-scale dataset of feasible and stylistically desirable compliant motions. We then train a policy with reinforcement learning to reproduce these behaviors. By observing the original, non-compliant motion but being rewarded for matching the corresponding compliant response, the policy learns to track motions softly while leveraging the standard machinery of RL motion imitation.  Our experiments show this approach enables a humanoid to controllably absorb disturbances, generalize a single motion clip to varied tasks like picking different-sized boxes, and safely handle unexpected contacts, all while preserving good motion tracking quality. We demonstrate these capabilities in simulation and on real hardware. -->
-          We introduce <i>SoftMimic</i>, a framework for learning compliant whole-body control policies for humanoid robots from example motions.  Imitating human motions with reinforcement learning allows humanoids to quickly learn new skills, but traditional motion-tracking controllers are stiff, aggressively correcting deviations from a reference motion, which can lead to brittle and unsafe behavior when the robot encounters unexpected contacts. In contrast, SoftMimic enables robots to respond controllably to external forces while maintaining balance and posture. Our approach leverages an inverse kinematics solver to generate an augmented dataset of feasible compliant motions, which we use to train a reinforcement learning policy. By rewarding the policy for matching compliant responses rather than rigidly tracking the reference motion, SoftMimic learns to absorb disturbances and generalize to varied tasks from a single motion clip. We validate our method through simulations and real-world experiments, demonstrating safe and effective interaction with the environment.
+          We introduce <i>SoftMimic</i>, a framework for learning compliant whole-body control policies for humanoid robots from example motions. Imitating human motions with reinforcement learning allows humanoids to quickly learn new skills, but existing methods incentivize stiff control that aggressively corrects deviations from a reference motion, leading to brittle and unsafe behavior when the robot encounters unexpected contacts. In contrast, SoftMimic enables robots to respond compliantly to external forces while maintaining balance and posture. Our approach leverages an inverse kinematics solver to generate an augmented dataset of feasible compliant motions, which we use to train a reinforcement learning policy. By rewarding the policy for matching compliant responses rather than rigidly tracking the reference motion, SoftMimic learns to absorb disturbances and generalize to varied tasks from a single motion clip. We validate our method through simulations and real-world experiments, demonstrating safe and effective interaction with the environment.
         </div>
     </div><br><br>
 
@@ -296,7 +295,7 @@
               <a href="https://nolie-rolie.github.io/" target="_blank">Nolan&nbsp;Fey</a>, and
               <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit&nbsp;Agrawal</a><br>
               <em>Preprint, 2025</em><br>
-              <a href="rsc/softmimic.pdf" target="_blank">paper</a> /
+              <a href="https://arxiv.org/abs/2510.17792" target="_blank">paper</a> /
               <a href="" data-toggle="modal" data-target="#bibtex">
                   bibtex
               </a>
@@ -317,7 +316,7 @@
   @article{margolis2025softmimic,
       title={{SoftMimic}: Compliant Motion Tracking for Humanoid Robots},
       author={Margolis, Gabriel B. and Wang, Michelle and Fey, Nolan and Agrawal, Pulkit},
-      journal={arXiv preprint arXiv:XXXX.XXXXX},
+      journal={arXiv preprint arXiv:2510.17792},
       year={2025}
   }
   </pre>
