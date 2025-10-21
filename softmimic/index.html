@@ -146,13 +146,13 @@
             </p>
             <div class="center">
                 <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/stiff_tpose_wall.m4v" type="video/mp4">
+                    <source src="rsc/stiff_tpose_wall.mp4" type="video/mp4">
               </video>
                <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/stiff_boxpick.m4v" type="video/mp4">
+                    <source src="rsc/stiff_boxpick.mp4" type="video/mp4">
               </video>
                <!-- <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/stiff_tpose_wall.m4v" type="video/mp4">
+                    <source src="rsc/stiff_tpose_wall.mp4" type="video/mp4">
               </video> -->
             </div>
             <br>
@@ -168,65 +168,115 @@
             <br>
             <hr>
             
-            <h5>Result: Controllable Stiffness and Safety</h5>
+            <h5>Result: Controllable Stiffness</h5>
             <p style="text-align: justify;">
                 Our policy can be commanded to behave with a specific stiffness. At low stiffness, it interacts gently and safely with its environment; at high stiffness, it firmly resists external forces to maintain its posture.
             </p>
             <div class="center" style="display: flex; justify-content: center; gap: 5px;">
                 <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
-                    <source src="rsc/standing_lowstiffness.m4v" type="video/mp4">
+                    <source src="rsc/standing_lowstiffness.mp4" type="video/mp4">
                 </video>
                 <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
-                    <source src="rsc/standing_highstiffness.m4v" type="video/mp4">
+                    <source src="rsc/standing_highstiffness.mp4" type="video/mp4">
+                </video>
+            </div>
+            <br>
+            <p style="text-align: justify;">
+                A teleoperator can command the robot to be stiff or compliant at deployment time. Below, the operator adjusting the joystick in the bottom left corner while the reference posture remains unchanged.
+            </p>
+            <div class="center" style="display: flex; justify-content: center; gap: 5px;">
+                <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/stiffnessmodulation_balloonpop.mp4" type="video/mp4">
+                </video>
+                <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/stiffnessmodulation_kettlebell.mp4" type="video/mp4">
+                </video>
+            </div>
+            <br>
+            <hr>
+
+            <h5>Result: Safety and Stability</h5>
+            <p style="text-align: justify;">
+                SoftMimic policies softly absorb unexpected contacts, whereas traditional motion tracking policies apply unspecified large forces that can damage the environment. Below, a traditional motion tracking baseline (left) and SoftMimic (right) are commanded to raise their arms next to a delicate Lego structure.
+            </p>
+            <div class="center">
+                <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/tpose_lego_baseline.mp4" type="video/mp4">
+                </video>
+                <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/tpose_lego_soft.mp4" type="video/mp4">
                 </video>
             </div>
             <br>
             <hr>
 
             <h5>Result: Task Generalization from a Single Motion</h5>
+            
             <p style="text-align: justify;">
-                Compliance enables a single reference motion to generalize to a range of task variations. Here, a motion reference dimensioned to pick a 20cm-wide box successfully enables picking boxes of various sizes by compliantly adjusting its grip. Boxes were never modeled during training, only generalized external forces.
+                Compliance enables a single reference motion to generalize to a range of task variations. Here, a motion reference dimensioned to pick a 20cm-wide box successfully enables picking boxes of various sizes by compliantly adjusting its grip. This policy was never trained on boxes, only generalized external forces.
             </p>
             <div class="center">
                 <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/box_pick_small.m4v" type="video/mp4">
+                    <source src="rsc/box_pick_small.mp4" type="video/mp4">
                 </video>
                 <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/box_pick_mid.m4v" type="video/mp4">
+                    <source src="rsc/box_pick_mid.mp4" type="video/mp4">
                 </video>
                 <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/box_pick_large.m4v" type="video/mp4">
+                    <source src="rsc/box_pick_large.mp4" type="video/mp4">
                 </video>
             </div>
 
+            <br>
+
             <p style="text-align: justify;">
-                The same policy can also respond to a variety of failure cases without specialized training.
+                The same policy can also respond to a variety of failure cases without specialized training. These represent scenarios where e.g. a high-level planner or teleoperator was ignorant of a misplaced box and attempted to pick it anyway.
             </p>
 
             <div class="center">
                 <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/box_disturbance1.m4v" type="video/mp4">
+                    <source src="rsc/box_disturbance1.mp4" type="video/mp4">
                 </video>
                 <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/box_disturbance2.m4v" type="video/mp4">
+                    <source src="rsc/box_disturbance2.mp4" type="video/mp4">
                 </video>
                 <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/box_disturbance3.m4v" type="video/mp4">
+                    <source src="rsc/box_disturbance3.mp4" type="video/mp4">
                 </video>
             </div>
 
-            <!-- <br> -->
-            <!-- <hr> -->
+            <br>
+            <hr>
 
-            <!-- <h5>Result: Safe and Predictable Sim-to-Real Transfer</h5>
+            <h5>Result: Compliant Locomotion and Manipulation</h5>
+            
             <p style="text-align: justify;">
-                Our policies transfer directly to the Unitree G1 humanoid without any fine-tuning, enabling safe and predictable physical interaction with humans and the environment.
+                SoftMimic policy trained with a walking reference can comply with a payload and human interactions while maintaining balance.
             </p>
             <div class="center">
-                <video width="80%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
-                    <source src="rsc/hardware_demo.mp4" type="video/mp4">
+                <video width="24.9%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/walk_freespace.mp4" type="video/mp4">
                 </video>
-            </div> -->
+                <video width="35%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/walk_drag.mp4" type="video/mp4">
+                </video>
+                <video width="35%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/walk_human.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <br>
+            <p style="text-align: justify;">
+                SoftMimic policy trained with a pouring reference maintains smooth pouring while its other hand is significantly displaced. A stiff baseline jitters when forced the same distance, spilling the contents.
+            </p>
+            <div class="center">
+                <video width="35%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/pour_stiff.mp4" type="video/mp4">
+                </video>
+                <video width="35%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/pour_soft.mp4" type="video/mp4">
+                </video>
+            </div>
 
         </div>
     </div>
