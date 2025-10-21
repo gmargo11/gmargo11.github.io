@@ -144,10 +144,13 @@
                 Policies trained to rigidly track a reference motion treat any deviation as an error to correct. When making unexpected contact with the world, they respond with large, uncontrolled forces, leading to brittle and potentially dangerous behavior.
             </p>
             <div class="center">
-                <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                <video width="28%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
                     <source src="rsc/stiff_tpose_wall.mp4" type="video/mp4">
               </video>
-               <video width="40%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+              <video width="35%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
+                    <source src="rsc/tpose_lego_baseline.mp4" type="video/mp4">
+                </video>
+               <video width="28%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
                     <source src="rsc/stiff_boxpick.mp4" type="video/mp4">
               </video>
                <!-- <video width="30%" padding-bottom="56.25%" style="max-width: 640px;" controls autoplay muted loop>
@@ -159,11 +162,23 @@
 
             <h5>Our Compliant Motion Augmentation Approach</h5>
             <p style="text-align: justify;">
-                Instead of asking an RL agent to balance compliant behaviors with motion imitation through competing rewards, we first generate a dataset of feasible and stylistically desirable compliant motions using an offline IK solver. The policy then learns to reproduce these behaviors, forcing it to implicitly infer external forces and react appropriately.
+                Instead of training an RL agent to strictly track motions under any perturbations, we want it to respond to external forces with a controllable force-displacement relationship. A key challenge is how to balance compliant behaviors with motion imitation objectives. Rather than tuning this balance through competing rewards, we first generate a dataset of feasible and stylistically desirable compliant motions using an offline IK solver, providing a fine-grained specification that simplifies task prioritization. The policy then learns to reproduce these compliant behaviors while only observing the original reference, forcing it to implicitly infer external forces and react appropriately.
             </p>
             <div class="center">
                 <img src="rsc/system_diagram.jpg" style="width: 100%;" alt="SoftMimic System Diagram" />
             </div>
+
+            <!-- <div class="center" style="display: flex; justify-content: center; gap: 5px;">
+                <video width="30%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/final_grid_zoom_out_stand.mp4" type="video/mp4">
+                </video>
+                <video width="30%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/final_grid_zoom_out_pick1.mp4" type="video/mp4">
+                </video>
+                <video width="30%" style="max-width: 720px;" controls autoplay muted loop>
+                    <source src="rsc/final_grid_zoom_out_walk.mp4" type="video/mp4">
+                </video>
+            </div> -->
             <br>
             <hr>
             
@@ -181,7 +196,7 @@
             </div>
             <br>
             <p style="text-align: justify;">
-                A teleoperator can command the robot to be stiff or compliant at deployment time. Below, the operator adjusting the joystick in the bottom left corner while the reference posture remains unchanged.
+                A teleoperator can command the robot to be stiff or compliant at deployment time. Below, the operator adjusts the joystick in the bottom left corner to increase and decrease stiffness while the reference posture remains unchanged.
             </p>
             <div class="center" style="display: flex; justify-content: center; gap: 5px;">
                 <video width="40%" style="max-width: 720px;" controls autoplay muted loop>
