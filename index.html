@@ -1,254 +1,381 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
-  <title>Gabriel Margolis</title>
-
-  <!-- <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
-  <meta name="author" content="Gabriel Margolis" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="canonical" href="https://gmargo11.github.io/">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
-
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8X3KQ68EL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-C8X3KQ68EL');
-  </script>
-<!-- </head> -->
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head> -->
+    <title>Gabriel Margolis</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- <title>Gabriel Margolis - Robotics Researcher</title> -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="author" content="Gabriel Margolis">
+    <meta name="description" content="PhD student at MIT CSAIL studying learned control for legged robots">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8X3KQ68EL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C8X3KQ68EL');
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root{--text-color:#333;--background-color:#fff;--accent-color:#06c;--light-gray:#f4f4f4}
-        *{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:'Inter',sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--background-color);padding-top:60px}
-        .container{max-width:800px;margin:0 auto;padding:0 20px}
-        header{background-color:var(--background-color);position:fixed;top:0;left:0;right:0;z-index:1000;box-shadow:0 1px 3px rgba(0,0,0,.1)}
-        nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-        nav h1{font-size:1.2rem;font-weight:600}
-        nav ul{display:flex;list-style-type:none}
-        nav ul li{margin-left:20px}
-        nav ul li a{color:var(--text-color);text-decoration:none;font-weight:400}
-        nav ul li a:hover{color:var(--accent-color)}
-        main{margin-top:2rem}
-        section{margin:3rem 0}
-        h2{font-size:1.8rem;margin-bottom:1rem;color:var(--text-color);font-weight:600}
-        .profile{display:flex;align-items:flex-start;margin-bottom:2rem}
-        .profile img{width:200px;margin-right:2rem}
-        .profile-content{flex:1}
-        .social-links{margin-top:1rem}
-        .social-links a{margin-right:15px;color:var(--text-color);text-decoration:none}
-        .social-links a:hover{color:var(--accent-color)}
-        .updates-list,.research-list{list-style-type:none}
-        .updates-list li,.research-item{margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--light-gray)}
-        .updates-list li:last-child,.research-item:last-child{border-bottom:none}
-        .updates-list li strong{font-weight:600}
-        .toggle-updates,.toggle-research{display:inline-block;color:#666;border:none;background:none;cursor:pointer;margin-top:1rem;font-size:.9rem;transition:color .3s ease;padding:0}
-        .toggle-updates:hover,.toggle-research:hover{color:var(--accent-color)}
-        .toggle-updates::after,.toggle-research::after{content:'\25BC';display:inline-block;margin-left:5px;font-size:.8em;transition:transform .3s ease}
-        .toggle-updates.open::after,.toggle-research.open::after{transform:rotate(180deg)}
-        #all-updates,#all-research{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .5s ease,margin .5s ease;margin-top:0}
-        #all-updates.show,#all-research.show{max-height:2000px;opacity:1;margin-top:2rem}
-        .research-item h3{font-size:1.2rem;margin-bottom:.5rem}
-        .research-item p{margin-bottom:.5rem}
-        .research-links a{color:var(--accent-color);text-decoration:none;margin-right:10px}
-        @media (max-width:600px){
-            .profile{flex-direction:column;align-items:center;text-align:center}
-            .profile img{margin-right:0;margin-bottom:1rem;width:150px}
-            nav{flex-direction:column}
-            nav ul{margin-top:1rem}
-            nav ul li{margin-left:0;margin-right:15px}
+        :root {
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --background: #fafafa;
+            --accent: #0066cc;
+            --border: #e0e0e0;
+            --dot-agility: #6b5b4f;
+            --dot-knowledge: #2a6041;
+            --dot-regulation: #3d5a80;
+            --dot-learning: #8b5a7a;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background: var(--background);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            padding: 2rem 0 1.25rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.25rem;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .profile img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+            filter: grayscale(15%);
+        }
+        
+        .profile-content h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        
+        .profile-content > p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+        }
+        
+        .social-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        
+        .social-links a:hover { color: var(--accent); }
+        
+        .research-hook {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .research-hook strong { color: var(--text-primary); }
+        
+        /* Grid layout */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .research-column h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        
+        .research-column h2 .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        
+        .dot.agility { background: var(--dot-agility); }
+        .dot.knowledge { background: var(--dot-knowledge); }
+        .dot.regulation { background: var(--dot-regulation); }
+        .dot.learning { background: var(--dot-learning); }
+        
+        .paper {
+            margin-bottom: 1rem;
+        }
+        
+        .paper-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            line-height: 1.3;
+            margin-bottom: 0.15rem;
+        }
+        
+        .paper-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .paper-title a:hover { color: var(--accent); }
+        
+        .paper-authors {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.1rem;
+        }
+        
+        .paper-authors strong { color: var(--text-primary); }
+        
+        .paper-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+        
+        .paper-meta .award {
+            color: #b44;
+            font-weight: 500;
+        }
+        
+        .paper-links {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            margin-top: 0.2rem;
+        }
+        
+        .paper-links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 0.5rem;
+        }
+        
+        .paper-links a:hover { text-decoration: underline; }
+        
+        /* Featured cards */
+        .featured-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-card:hover .card-title {
+            color: var(--accent);
+        }
+        
+        .featured-card .card-image {
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: var(--border);
+            border-radius: 3px;
+            margin-bottom: 0.4rem;
+        }
+        
+        .featured-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-card .card-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            line-height: 1.3;
+            margin-bottom: 0.15rem;
+            transition: color 0.2s;
+        }
+        
+        .featured-card .paper-authors {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.1rem;
+        }
+        
+        .featured-card .paper-authors strong {
+            color: var(--text-primary);
+        }
+        
+        .featured-card .card-description {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.1rem;
+        }
+        
+        footer {
+            padding: 1.25rem 0;
+            margin-top: 2rem;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 900px) {
+            .research-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 550px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile img { width: 90px; height: 90px; }
+            .social-links { justify-content: center; }
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <h1>Gabriel Margolis</h1>
-                <!-- <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#updates">Updates</a></li>
-                    <li><a href="#research">Research</a></li>
-                </ul> -->
-            </nav>
-        </div>
-    </header>
     <main class="container">
-        <section id="about">
+        <header>
             <div class="profile">
                 <img src="./images/gbm_headshot.jpg" alt="Gabriel Margolis">
                 <div class="profile-content">
-                    <!-- <h2>Gabriel Margolis</h2> -->
-                    <p>I am a PhD student at the Computer Science and Artificial Intelligence Laboratory (CSAIL) at MIT, advised by Pulkit Agrawal. I study learned control as a component of complete robotic systems. Previously, I received my BS ('20) and MEng ('21) degrees at MIT.</p>
+                    <h1>Gabriel Margolis</h1>
+                    <p>PhD student at MIT CSAIL.</p>
                     <div class="social-links">
-                        <a href="mailto:gmargo@mit.edu">Email</a>
-                        <a href="https://scholar.google.com/citations?hl=en&user=Jzt5uNAAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a>
-                        <a href="https://twitter.com/gabe_mrgl">Twitter</a>
-                        <a href="https://github.com/gmargo11">GitHub</a>
+                        <a href="mailto:gmargo@mit.edu">email</a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=Jzt5uNAAAAAJ&view_op=list_works&sortby=pubdate">scholar</a>
+                        <a href="https://twitter.com/gabe_mrgl">twitter</a>
+                        <a href="https://github.com/gmargo11">github</a>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- <section id="updates">
-            <h2>Updates</h2>
-            <ul class="updates-list" id="recent-updates">
-                <li><strong>Oct '24</strong> - Gave a talk at <a href="https://ai.engin.umich.edu/events/2024-ai-symposium/">Michigan AI Symposium</a> on Learning Proprioceptive Intelligence.</li>
-                <li><strong>Aug '24</strong> - I was a summer intern on the Atlas team at Boston Dynamics supervised by Michael Lutter and Scott Kuindersma.</li>
-                <li><strong>May '24</strong> - I co-organized two workshops at ICRA 2024 in Yokohama: <a href="https://agile-robotics-workshop.github.io/icra2024/">Agile Robotics</a> on Monday and <a href="https://sites.google.com/view/loco-manipulation-icra24">Loco-Manipulation</a> on Friday.</li>
-            </ul>
-            <button id="toggle-updates" class="toggle-updates">Show older updates</button>
-            <ul class="updates-list" id="all-updates">
-                <li><strong>Nov '23</strong> - I shared our work on <a href="https://gmargo11.github.io/active-sensing-loco/">learning to actively sense terrain properties during locomotion</a> at CoRL '23.</li>
-                <li><strong>Apr '23</strong> - Our sim-to-real soccer ball manipulation project, <a href="https://gmargo11.github.io/dribblebot">DribbleBot</a>, was covered by <a href="https://www.mit.edu/archive/spotlight/taking-all-terrain-robots-further/">MIT News</a>.</li>
-                <li><strong>Dec '22</strong> - Our open-source codebase for sim2real transfer of continuously parameterized structured gaits to Unitree Go1 is now released, accompanying our CoRL 2022 paper. <a href="https://github.com/Improbable-AI/walk-these-ways">Try it out here.</a></li>
-                <li><strong>Dec '22</strong> - I co-organized the <a href="https://sim2real.corl2022.org/">Workshop on Sim-to-Real Robot Learning: Locomotion and Beyond</a> at the 2022 Conference on Robot Learning. Thanks to all who participated! The full recording is now available <a href="https://www.youtube.com/watch?v=1LcORZyV1cs">here</a>.</li>
-                <li><strong>Jun '22</strong> - I <a href="https://youtu.be/qI0zvRp-UnE?t=24144">presented</a> our work on teaching robots to run fast at the Robotics: Science and Systems conference in New York City. At the conference banquet, our robot <a href="https://twitter.com/pulkitology/status/1542619522053685251?s=20&t=lLfqxx4fgpY_sBphj_3gfw">hit the dance floor</a>.</li>
-            </ul>
-        </section> -->
-        <section id="research">
-            <h2>Research</h2>
-            <div class="research-list" id="recent-research">
-                <div class="research-item">
-                    <h3>SoftMimic: Learning Compliant Whole-body Control from Examples</h3>
-                    <p><strong>Gabriel B. Margolis</strong>*, Michelle Wang*, Nolan Fey, Pulkit Agrawal</p>
-                    <p><em>Preprint, 2025</em></p>
-                    <p>Variable-stiffness humanoid motion imitation enabling gentle contact with the environment for safety and generalization.</p>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/abs/2510.17792">Paper</a>
-                        <a href="https://gmargo11.github.io/softmimic/">Project Page</a>
-                    </div>
+        </header>
+        
+        <p class="research-hook"><strong>How can dynamic robots learn to fully exploit their proprioceptive sense of touch?</strong> I study how legged and humanoid robots can make <em>intelligent contact</em> with their environment to act safely and build understanding of the physical world.</p>
+        
+        <div class="research-grid">
+            <div class="research-column">
+                <h2><span class="dot regulation"></span>Controlling Contact</h2>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2510.17792">SoftMimic: Learning Compliant Whole-body Control from Examples</a></div>
+                    <div class="paper-authors"><strong>Margolis</strong>*, Wang*, Fey, Agrawal</div>
+                    <div class="paper-meta">Preprint 2025</div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2510.17792">paper</a><a href="https://gmargo11.github.io/softmimic/">project</a></div>
                 </div>
-                <div class="research-item">
-                    <h3>Bridging the Sim-to-Real Gap for Athletic Loco-Manipulation</h3>
-                    <p>Nolan Fey, <strong>Gabriel B. Margolis</strong>, Martin Peticco, Pulkit Agrawal</p>
-                    <p><em>Robotics: Science and Systems (RSS), 2025</em></p>
-                    <p>Improve the sim-to-real transfer of a legged manipulator's athletic motor skills by aligning the physics of simulation to reality through a data-driven approach.</p>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/abs/2502.10894">Paper</a>
-                        <a href="https://uan.csail.mit.edu/">Project Page</a>
-                        <a href="https://github.com/nolie-rolie/athletic-loco-manipulation/">Code</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <h3>Position: Automatic Environment Shaping is the Next Frontier in RL</h3>
-                    <p>Younghyo Park*, <strong>Gabriel B. Margolis</strong>*, Pulkit Agrawal</p>
-                    <p><em>International Conference on Machine Learning (ICML), 2024</em>  <strong>(Oral Presentation)</strong></p></p>
-                    <p>To generalize the successes of reinforcement learning, we need research on the interaction between environment shaping and learning dynamics.</p>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/abs/2407.16186">Paper</a>
-                        <a href="https://auto-env-shaping.github.io/">Project Page</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <h3>Action Space Design in Reinforcement Learning for Robot Motor Skills</h3>
-                    <p>Julian Eßer*, <strong>Gabriel B. Margolis</strong>*, Oliver Urbann, Sören Kerner, Pulkit Agrawal</p>
-                    <p><em>Conference on Robot Learning (CoRL), 2024</em> </p></p>
-                    <p>Examine the mechanisms by which action space design impacts learning dynamics across robot embodiments, including evoBOT, a unique wheeled-legged biped.</p>
-                    <div class="research-links">
-                        <a href="https://openreview.net/pdf?id=GGuNkjQSrk">Paper</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <h3>Learning Force Control for Legged Manipulation</h3>
-                    <p>Tifanny Portela, <strong>Gabriel B. Margolis</strong>, Yandong Ji, Pulkit Agrawal</p>
-                    <p><em>International Conference on Robotics and Automation (ICRA), 2024</em></p>
-                    <p>Learn to control the force at the end effector of a quadruped robot with an arm for compliant and forceful loco-manipulation.</p>
-                    <div class="research-links">
-                        <a href="http://arxiv.org/abs/2405.01402">Paper</a>
-                        <a href="https://tif-twirl-13.github.io/learning-compliance">Project Page</a>
-                        <a href="https://github.com/Improbable-AI/learning-compliance/">Code</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <h3>Maximizing Quadruped Velocity by Minimizing Energy</h3>
-                    <p>Srinath Mahankali*, Chi-Chang Lee*, <strong>Gabriel B. Margolis</strong>, Zhang-Wei Hong, Pulkit Agrawal</p>
-                    <p><em>International Conference on Robotics and Automation (ICRA), 2024</em></p>
-                    <p>Balance energy and velocity through constrained optimization for agile running with minimal reward shaping.</p>
-                    <div class="research-links">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10609983">Paper</a>
-                        <a href="https://srinathm1359.github.io/eipo-locomotion">Project Page</a>
-                    </div>
-                </div>
-            <!-- </div>
-            <button id="toggle-research" class="toggle-research">Show more research</button>
-            <div class="research-list" id="all-research"> -->
-                <div class="research-item">
-                    <h3>Learning to See Physical Properties with Active Sensing Motor Policies</h3>
-                    <p><strong>Gabriel B. Margolis</strong>, Xiang Fu, Yandong Ji, Pulkit Agrawal</p>
-                    <p><em>Conference on Robot Learning (CoRL), 2023</em></p>
-                    <p>Learn to see how terrains feel by collecting self-supervised data with information-maximizing motor skills.</p>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/abs/2311.01405">Paper</a>
-                        <a href="https://gmargo11.github.io/active-sensing-loco">Project Page</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                  <h3>DribbleBot: Dynamic Legged Manipulation in the Wild</h3>
-                  <p>Yandong Ji*, <strong>Gabriel B. Margolis*</strong>, Pulkit Agrawal</p>
-                  <p><em>International Conference on Robotics and Automation (ICRA), 2023</em></p>
-                  <p>Dynamic object manipulation with the legs, using onboard computation and sensing.</p>
-                  <div class="research-links">
-                      <a href="https://arxiv.org/abs/2304.01159">Paper</a>
-                      <a href="https://gmargo11.github.io/dribblebot">Project Page</a>
-                      <a href="https://github.com/Improbable-AI/walk-these-ways/">Code</a>
-                  </div>
-              </div>
-                <div class="research-item">
-                    <h3>Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior</h3>
-                    <p><strong>Gabriel B. Margolis</strong>, Pulkit Agrawal</p>
-                    <p><em>Conference on Robot Learning (CoRL), 2022</em> <strong>(Oral Presentation)</strong></p>
-                    <p>One learned policy embodies parameterized dynamic behaviors useful for different tasks.</p>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/abs/2212.03238">Paper</a>
-                        <a href="https://gmargo11.github.io/walk-these-ways/">Project Page</a>
-                        <a href="https://github.com/Improbable-AI/dribblebot/">Code</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <h3>Rapid Locomotion via Reinforcement Learning</h3>
-                    <p><strong>Gabriel B. Margolis</strong>*, Ge Yang*, Kartik Paigwar, Tao Chen, Pulkit Agrawal</p>
-                    <p><em>Robotics: Science and Systems (RSS), 2022</em></p>
-                    <p>High-speed running and spinning on diverse terrains with a single neural network.</p>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/pdf/2205.02824.pdf">Paper</a>
-                        <a href="https://agility.csail.mit.edu/">Project Page</a>
-                        <a href="https://github.com/Improbable-AI/rapid-locomotion-rl/">Code</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <h3>Learning to Jump from Pixels</h3>
-                    <p><strong>Gabriel B. Margolis</strong>, Tao Chen, Kartik Paigwar, Xiang Fu, Donghyun Kim, Sangbae Kim, Pulkit Agrawal</p>
-                    <p><em>Conference on Robot Learning (CoRL), 2021</em></p>
-                    <p>A hierarchical control framework for dynamic vision-aware locomotion.</p>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/pdf/2110.15344.pdf">Paper</a>
-                        <a href="https://sites.google.com/view/jumpingfrompixels">Project Page</a>
-                    </div>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2405.01402">Learning Force Control for Legged Manipulation</a></div>
+                    <div class="paper-authors">Portela, <strong>Margolis</strong>, Ji, Agrawal</div>
+                    <div class="paper-meta">ICRA 2024</div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2405.01402">paper</a><a href="https://tif-twirl-13.github.io/learning-compliance">project</a></div>
                 </div>
             </div>
-        </section>
+            
+            <div class="research-column">
+                <h2><span class="dot knowledge"></span>Learning from Contact</h2>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2311.01405">Learning to See Physical Properties with Active Sensing Motor Policies</a></div>
+                    <div class="paper-authors"><strong>Margolis</strong>, Fu, Ji, Agrawal</div>
+                    <div class="paper-meta">CoRL 2023</div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2311.01405">paper</a><a href="https://gmargo11.github.io/active-sensing-loco">project</a></div>
+                </div>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2502.10894">Bridging the Sim-to-Real Gap for Athletic Loco-Manipulation</a></div>
+                    <div class="paper-authors">Fey, <strong>Margolis</strong>, Peticco, Agrawal</div>
+                    <div class="paper-meta">RSS 2025</div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2502.10894">paper</a><a href="https://uan.csail.mit.edu/">project</a></div>
+                </div>
+            </div>
+            
+            <div class="research-column">
+                <h2><span class="dot agility"></span>Agility</h2>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2205.02824">Rapid Locomotion via Reinforcement Learning</a></div>
+                    <div class="paper-authors"><strong>Margolis</strong>*, Yang*, Paigwar, Chen, Agrawal</div>
+                    <div class="paper-meta">RSS 2022 · IJRR 2024</div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2205.02824">paper</a><a href="https://agility.csail.mit.edu/">project</a></div>
+                </div>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2212.03238">Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior</a></div>
+                    <div class="paper-authors"><strong>Margolis</strong>, Agrawal</div>
+                    <div class="paper-meta">CoRL 2022 <span class="award">oral</span></div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2212.03238">paper</a><a href="https://gmargo11.github.io/walk-these-ways/">project</a></div>
+                </div>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2304.01159">DribbleBot: Dynamic Legged Manipulation in the Wild</a></div>
+                    <div class="paper-authors">Ji*, <strong>Margolis</strong>*, Agrawal</div>
+                    <div class="paper-meta">ICRA 2023</div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2304.01159">paper</a><a href="https://gmargo11.github.io/dribblebot">project</a></div>
+                </div>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2110.15344">Learning to Jump from Pixels</a></div>
+                    <div class="paper-authors"><strong>Margolis</strong>, Chen, Paigwar, Fu, Kim, Kim, Agrawal</div>
+                    <div class="paper-meta">CoRL 2021</div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2110.15344">paper</a><a href="https://sites.google.com/view/jumpingfrompixels">project</a></div>
+                </div>
+            </div>
+            
+            <div class="research-column">
+                <h2><span class="dot learning"></span>Dynamics of Learning</h2>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://arxiv.org/abs/2407.16186">Position: Automatic Environment Shaping is the Next Frontier in RL</a></div>
+                    <div class="paper-authors">Park*, <strong>Margolis</strong>*, Agrawal</div>
+                    <div class="paper-meta">ICML 2024 <span class="award">oral</span></div>
+                    <div class="paper-links"><a href="https://arxiv.org/abs/2407.16186">paper</a><a href="https://auto-env-shaping.github.io/">project</a></div>
+                </div>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://openreview.net/pdf?id=GGuNkjQSrk">Action Space Design in Reinforcement Learning for Robot Motor Skills</a></div>
+                    <div class="paper-authors">Eßer*, <strong>Margolis</strong>*, Urbann, Kerner, Agrawal</div>
+                    <div class="paper-meta">CoRL 2024</div>
+                    <div class="paper-links"><a href="https://openreview.net/pdf?id=GGuNkjQSrk">paper</a></div>
+                </div>
+                
+                <div class="paper">
+                    <div class="paper-title"><a href="https://ieeexplore.ieee.org/abstract/document/10609983">Maximizing Quadruped Velocity by Minimizing Energy</a></div>
+                    <div class="paper-authors">Mahankali*, Lee*, <strong>Margolis</strong>, Hong, Agrawal</div>
+                    <div class="paper-meta">ICRA 2024</div>
+                    <div class="paper-links"><a href="https://ieeexplore.ieee.org/abstract/document/10609983">paper</a><a href="https://srinathm1359.github.io/eipo-locomotion">project</a></div>
+                </div>
+            </div>
+        </div>
+        
     </main>
-    <script>
-        function toggleSection(t,e){const o=document.getElementById(t),n=document.getElementById(e);o.addEventListener("click",function(){n.classList.contains("show")?(n.classList.remove("show"),o.textContent="toggle-updates"===t?"Show older updates":"Show more research",o.classList.remove("open")):(n.classList.add("show"),o.textContent="toggle-updates"===t?"Hide older updates":"Show less research",o.classList.add("open"))})}
-        toggleSection("toggle-updates","all-updates");
-        toggleSection("toggle-research","all-research");
-    </script>
-</body>
-
+    </body>
 </html>
-
