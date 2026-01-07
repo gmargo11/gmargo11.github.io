@@ -98,7 +98,18 @@
         }
         
         .research-hook strong { color: var(--text-primary); }
-        
+
+        .hero-video {
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .hero-video video {
+            width: 100%;
+            display: block;
+        }
+
         /* Grid layout */
         .research-grid {
             display: grid;
@@ -280,7 +291,13 @@
         </header>
         
         <p class="research-hook"><strong>How can dynamic robots learn to fully exploit their proprioceptive sense of touch?</strong> I study how legged and humanoid robots can make <em>intelligent contact</em> with their environment to act safely and build understanding of the physical world.</p>
-        
+
+        <div class="hero-video">
+            <video autoplay loop muted playsinline>
+                <source src="project_videos/hero_paperlabels.mp4" type="video/mp4">
+            </video>
+        </div>
+
         <div class="research-grid">
             <div class="research-column">
                 <h2><span class="dot regulation"></span>Controlling Contact</h2>
